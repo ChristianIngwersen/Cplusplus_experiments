@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 2.8)
+project( segment )
+find_package( OpenCV REQUIRED )
+find_package (Eigen3 3.3 REQUIRED NO_MODULE)
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+include_directories(/usr/local/include/maxflow-3.0)
+set (CMAKE_CXX_STANDARD 11)
+add_executable( segment polar_main.cpp )
+
+target_link_libraries( segment ${OpenCV_LIBS} )
+target_link_libraries (segment Eigen3::Eigen)
+target_link_libraries (segment /usr/local/lib/libmaxflow.dylib)
